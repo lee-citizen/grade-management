@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import type { FormInstance } from 'element-plus/lib/components/form/index.js'
 import api from '~/data/mock'
 import { useStore } from '~/store'
 
@@ -18,7 +19,7 @@ const clientInfo = computed(() => {
 })
 
 const currentpage: Ref<number> = ref(1)
-const limit: Ref<number> = ref(6)
+const limit: Ref<number> = ref(10)
 const studentData: Ref<StudentData> = ref({ list: [], index: 0 })
 const layout = 'total, sizes, prev, pager, next, jumper'
 
@@ -61,9 +62,12 @@ const rules = {
   age: [
     { required: true, message: '请输入年龄', trigger: 'blur' },
   ],
+  sex: [
+    { required: true },
+  ],
 
 }
-const formData = ref(null)
+const formData = ref<FormInstance>()
 const editInfo: Ref<StudentData> = ref({ list: [], index: 0 })
 function editHandle(e: StudentData) {
   editInfo.value = e
@@ -74,8 +78,6 @@ function affirm() {
   formData.value.validate((valid) => {
     if (valid) {
       // 提交表单
-      console.log(editInfo.value)
-
       editVisible.value = false
 
       ElMessage.success('提交成功！')
@@ -89,7 +91,7 @@ function affirm() {
 
 <template>
   <div>
-    <el-table :data="studentData.list" style="width: 100%" row-key="id" @expand-change="expandChange">
+    <el-table :size="clientInfo.width > 768 ? 'default' : 'small'" :data="studentData.list" style="width: 100%" row-key="id" @expand-change="expandChange">
       <el-table-column type="expand">
         <template #default="props">
           <div m="4">

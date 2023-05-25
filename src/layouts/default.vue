@@ -31,7 +31,7 @@ onMounted(() => {
       loading.value = false
     }, 1000)
   }
-  else if (islogin && router.currentRoute.value.name === 'Login') {
+  else if (islogin && router.currentRoute.value.name === 'login') {
     router.push('/')
     loading.value = false
   }
@@ -56,6 +56,6 @@ onMounted(() => {
     <TheHeader v-show="!outRouterName.includes(routerName as string)" />
     <Loading v-if="loading" />
     <RouterView />
-    <TheFooter />
+    <!-- <TheFooter /> -->
   </main>
 </template>

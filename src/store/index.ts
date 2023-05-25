@@ -49,7 +49,7 @@ const userInfo: userInfo = {
   age: 18,
   auth: '管理员',
 }
-export const key: InjectionKey<Store<State>> = Symbol()
+export const key: InjectionKey<Store<State>> = Symbol('symbol-description')
 export const store = createStore<State>({
   state: {
     count: 0,

@@ -45,7 +45,7 @@ function go(path: string) {
 </script>
 
 <template>
-  <div hfull overflow-x-auto px-2 pb-10 pt-2 sm:px-4 sm:pt-4>
+  <div hfull overflow-y-auto px-2 pb-10 pt-2 sm:px-4 sm:pt-4>
     <div mb-3 w-300px flex items-center>
       <el-input v-model="keyword" clearable placeholder="请输入名称" h32px />
       <ElButton class="ml-2" type="primary" @click="getTestData">
@@ -53,7 +53,7 @@ function go(path: string) {
       </ElButton>
     </div>
     <el-card class="box-card">
-      <el-table :data="testData.list" style="width: 100%">
+      <el-table :size="clientInfo.width > 768 ? 'default' : 'small'" :data="testData.list" style="width: 100%">
         <el-table-column prop="name" :width="clientInfo.width > 768 ? 'auto' : 190" label="考试名称" />
         <el-table-column prop="status" label="状态">
           <template #default="scope">

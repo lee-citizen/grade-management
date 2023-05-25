@@ -80,10 +80,10 @@ function handleLogin(formEl: FormInstance | undefined) {
   <div class="login-container h-100vh flex items-center justify-center bg-#324057 bg-cover">
     <div>
       <el-form ref="ruleFormRef" :model="form" :rules="rules" class="login-form overflow-hidden" label-position="left">
-        <div class="title">
+        <div class="title text-white">
           hello !
         </div>
-        <div class="title-tips text-20px sm:text-26px">
+        <div class="title-tips text-20px text-white sm:text-26px">
           欢迎来到学生答题情况监控系统！
         </div>
         <el-form-item style="margin-top: 40px" prop="username">
@@ -117,14 +117,12 @@ function handleLogin(formEl: FormInstance | undefined) {
   .title {
     font-size: 54px;
     font-weight: 500;
-    color: rgba(14, 18, 26, 1);
   }
 
   .title-tips {
     margin-top: 29px;
 
     font-weight: 400;
-    color: rgba(14, 18, 26, 1);
     text-overflow: ellipsis;
     white-space: nowrap;
   }
