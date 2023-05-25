@@ -56,7 +56,7 @@ export const store = createStore<State>({
     routerList,
     userInfo: {},
     islogin: window.localStorage.getItem('islogin') === 'true',
-    outRouterName: ['Login'],
+    outRouterName: ['login'],
     clientInfo: {
       width: 0,
       height: 0,
